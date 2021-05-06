@@ -1,4 +1,4 @@
-# bitsnbytes-staging
+# BitsNbytes-Staging
 BitsNbytes website staging repo for development and testing purposes
 # Setup
 ## Get the source code and install the required modules
