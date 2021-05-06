@@ -4,7 +4,9 @@
   "description": "BitsNbytes website staging repo for development and testing purposes",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "servers": "concurrently \"npm run dev\" \"cd frontend && npm run start\""
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,13 @@
   "bugs": {
     "url": "https://github.com/BitsNbytes-JIT/bitsnbytes-staging/issues"
   },
-  "homepage": "https://github.com/BitsNbytes-JIT/bitsnbytes-staging#readme"
+  "homepage": "https://github.com/BitsNbytes-JIT/bitsnbytes-staging#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "dotenv": "^9.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.7",
+    "nodemon": "^2.0.7"
+  }
 }
