@@ -1,0 +1,19 @@
+{
+  "name": "bitsnbytes-staging",
+  "version": "1.0.0",
+  "description": "BitsNbytes website staging repo for development and testing purposes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BitsNbytes-JIT/bitsnbytes-staging.git"
+  },
+  "author": "BitsNbytes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BitsNbytes-JIT/bitsnbytes-staging/issues"
+  },
+  "homepage": "https://github.com/BitsNbytes-JIT/bitsnbytes-staging#readme"
+}
