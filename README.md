@@ -7,7 +7,7 @@ git clone https://github.com/BitsNbytes-JIT/bitsnbytes-staging.git
 cd bitsnbytes-staging
 npm install 
 ```
-# Connecting to MongoDB 
+## Connecting to MongoDB 
 Create a new file named as .env.
 Add the  following details to bitsnbytes-staging/.env
 ```
