@@ -5,9 +5,6 @@ BitsNbytes website staging repo for development and testing purposes
 ```
 git clone https://github.com/BitsNbytes-JIT/bitsnbytes-staging.git
 cd bitsnbytes-staging
-```
-then run
-```
 npm install 
 ```
 # Start the web server
