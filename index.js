@@ -1,9 +1,10 @@
-require('dotenv').config();
-const express = require('express');
-const connectDB = require('./backend/database/connection');
-const port = process.env.PORT || 8080;
-const path = require('path');
+import express from 'express'
+import connectDB from './backend/database/connection.js';
+import dotenv from "dotenv"
+import  path from  'path';
 
+dotenv.config();
+const port = process.env.PORT || 8080;
 // create an express app
 const app = express();
 
