@@ -1,12 +1,13 @@
-import logo from '../logo.svg';
+import logo from '../assets/img/logo.png';
 import '../assets/css/App.css';
 import Footer from "../components/Footer/Footer";
 
 function App() {
   return (
     <div className="App">
+      
       <header className="App-header">
-        <img src={logo} className="" alt="logo" />
+      <img src={logo} className="logo" alt="logo" />
         <p>
           Bits N Bytes
         </p>
