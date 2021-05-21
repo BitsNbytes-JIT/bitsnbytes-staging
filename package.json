@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "BitsNbytes website staging repo for development and testing purposes",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",

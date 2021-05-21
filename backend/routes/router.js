@@ -1,4 +1,3 @@
-const express = require('express');
+import express from 'express';
 const route = express.Router()
-const services = require('../render/render');
 
