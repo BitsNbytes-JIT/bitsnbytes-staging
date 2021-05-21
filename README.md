@@ -11,7 +11,7 @@ npm install
 Create a new file named as .env.
 Add the  following details to bitsnbytes-staging/.env
 ```
-MONGO_URI= <Connection URL to the MONGODB cluster
+MONGO_URI= <Connection URL to the MONGODB cluster>
 PORT=8088
 ```
 ## Start the web server
