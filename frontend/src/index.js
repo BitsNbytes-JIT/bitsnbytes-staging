@@ -3,10 +3,18 @@ import ReactDOM from 'react-dom';
 // import '../src/assets/scss/index.scss';
 import Index from './views/Index';
 import reportWebVitals from './reportWebVitals';
+import {BrowserRouter, Route} from 'react-router-dom';
+import register from './components/register.js';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Index/>
+    <BrowserRouter>
+    <Route path="/" exact={true} component={Index}/>
+    <Route path="/register" exact={true} component={register}/>
+
+
+    </BrowserRouter>
+        
   </React.StrictMode>,
   document.getElementById('root')
 );

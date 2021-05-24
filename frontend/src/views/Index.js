@@ -2,6 +2,8 @@ import logo from '../assets/img/logo.png';
 import '../assets/css/App.css';
 import Footer from "../components/Footer/Footer";
 
+import { Link } from 'react-router-dom';
+
 function App() {
   return (
     <div className="App">
@@ -11,14 +13,8 @@ function App() {
         <p>
           Bits N Bytes
         </p>
-        <a
-          className="App-link"
-          href="https://forms.gle/dn1KaKcrtewguxj57"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Register here
-        </a>
+        <Link to="/register">Register</Link>
+
       </header>
       <Footer/>
     </div>

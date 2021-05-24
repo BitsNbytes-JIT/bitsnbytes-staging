@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
 
+const URI =  "mongodb+srv://sumanth:nsumanth@6@bnb-sumanth.1bbal.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+
 const connectDB = async () => {
     try{
         // mongodb connection string
