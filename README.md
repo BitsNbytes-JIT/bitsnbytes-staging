@@ -13,6 +13,7 @@ Add the  following details to bitsnbytes-staging/.env
 ```
 MONGO_URI= <Connection URL to the MONGODB cluster>
 PORT=8088
+SECRET="YOUR SECRET KEY GOES HERE"
 ```
 ## Start the web server
 ```
