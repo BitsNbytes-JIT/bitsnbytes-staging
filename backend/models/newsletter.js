@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
 
 const newsSchema = mongoose.Schema({
-    title: String,
+    title:  { type: String, required:  true },
     message: String,
-    name: String,
+    name:  { type: String, required:  true },
     creator: String,
     tags: [String],
     selectedFile: String,

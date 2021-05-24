@@ -2,11 +2,11 @@ import mongoose from 'mongoose';
 
 const userSchema = mongoose.Schema({
     _id:String,
-    Name:String,
+    Name: { type: String, required:  true },
     USN:String,
-    Branch:String,
+    Branch: { type: String, required:  true },
     Sem:String,
-    Email:String,
+    Email: { type: String, required:  true },
     Phone:Integer,
     Volunteer:Boolean,
     Intrests:String
