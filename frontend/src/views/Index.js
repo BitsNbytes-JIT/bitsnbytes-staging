@@ -1,7 +1,7 @@
 import logo from '../assets/img/logo.png';
 import '../assets/css/App.css';
 import Footer from "../components/Footer/Footer";
-
+import { TextField } from '@material-ui/core';
 function App() {
   return (
     <div className="App">
@@ -17,8 +17,10 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
+          
           Register here
         </a>
+        <TextField id="standard-basic" label="Standard" />
       </header>
       <Footer/>
     </div>
