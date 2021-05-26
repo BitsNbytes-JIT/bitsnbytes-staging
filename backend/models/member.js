@@ -1,17 +1,16 @@
 import mongoose from 'mongoose';
 
 const userSchema = mongoose.Schema({
-    _id:String,
-    Name: { type: String, required:  true },
+    Name: String, 
     USN:String,
-    Branch: { type: String, required:  true },
+    Branch: String,
     Sem:String,
-    Email: { type: String, required:  true },
-    Phone:Integer,
-    Volunteer:Boolean,
+    Email: String,
+    Phone:String,
+    Volunteer:String,
     Intrests:String
 });
 
-var member = mongoose.model('Core', userSchema);
+var member = mongoose.model('Members', userSchema);
 
 export default member;

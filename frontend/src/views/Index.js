@@ -1,28 +1,24 @@
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import logo from '../assets/img/logo.png';
 import '../assets/css/App.css';
 import Footer from "../components/Footer/Footer";
+import Navbar from "../components/Navbar/Navbar";
+import Landing from "../components/Landing";
+import Register from "../components/Register";
 
-function App() {
-  return (
-    <div className="App">
-      
-      <header className="App-header">
-      <img src={logo} className="logo" alt="logo" />
-        <p>
-          Bits N Bytes
-        </p>
-        <a
-          className="App-link"
-          href="https://forms.gle/dn1KaKcrtewguxj57"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Register here
-        </a>
-      </header>
-      <Footer/>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+        <Router>
+          <div className="App">
+            <Navbar />
+            <Route exact path="/" component={Landing} />
+            <Route exact path="/register" component={Register} />
+            {/* <Route exact path="/login" component={Login} /> */}
+          </div>
+        </Router>
+    );
+  }
 }
-
 export default App;

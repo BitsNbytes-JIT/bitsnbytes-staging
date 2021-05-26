@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios'
 // import '../src/assets/scss/index.scss';
 import Index from './views/Index';
+import './index.css';
 import reportWebVitals from './reportWebVitals';
+axios.defaults.baseURL ="http://localhost:8000/";
 
 ReactDOM.render(
   <React.StrictMode>
