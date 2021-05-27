@@ -2,11 +2,11 @@ import mongoose from 'mongoose';
 
 const newsSchema = mongoose.Schema({
     title:  { type: String, required:  true },
-    message: String,
+    message: { type: String, required:  true },
     name:  { type: String, required:  true },
-    creator: String,
+    creator : String,
     tags: [String],
-    selectedFile: String,
+    images: [String],
     likes: { 
         type: [String], 
         default: [] 
