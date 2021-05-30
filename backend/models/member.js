@@ -41,21 +41,17 @@ const memberSchema = mongoose.Schema({
         type:String,
         required: true
     },
-    password:{
-        type: String,
-        required:true
-    },
     phone :{
         type: Number,
         required: true
     },
-    Volunteer :{
+    volunteer :{
         type: String,
         default: 'No'
 
     
     },
-    Interest: {
+    interest: {
         type: String,
 
 
@@ -66,4 +62,17 @@ const memberSchema = mongoose.Schema({
 
 var member = mongoose.model('Member',memberSchema);
 
+
+
+// const get = (callback,limit) => {
+//     member.find(callback),limit(limit);
+//     return
+// }
+// export { get };
+
 export default member;
+// exports = {
+//     get: function (callback, limit) {
+//         member.find(callback).limit(limit);
+// }
+// }

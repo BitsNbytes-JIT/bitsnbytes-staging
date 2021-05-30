@@ -34,3 +34,8 @@ Password:{
 var core = mongoose.model('Core', coreSchema);
 
 export default core;
+
+const getCore= function (callback, limit) {
+    core.find(callback).limit(limit);
+}
+export { getCore};

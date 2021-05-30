@@ -14,7 +14,7 @@ class register extends Component {
             email:'',
             password: '',
             phone:'',
-            volunter:'No',
+            volunteer:'No',
             interest:''
         }
         this.namechange = this.namechange.bind(this);
@@ -54,20 +54,33 @@ class register extends Component {
             this.setState({phone: event.target.value});
         }
         volunteerchange = (event) => {
-            const { volunter, value } = event.target;
+            const { volunteer, value } = event.target;
 
             this.setState({
-              [volunter]: value  });
+              [volunteer]: value  });
         }
         interestchange = (event) => {
             this.setState({interest: event.target.value});
         }
 
         formurl = async() => {
-            const response = await axios.post('/mem?name='+this.state.name+'&usn='+this.state.usn+'&branch='+this.state.branch+'&sem='+this.state.sem+'&email='+this.state.email+'&password='+this.state.password+'&phone='+this.state.phone+'&volunter='+this.state.volunteer+'&interest='+this.state.interest);
-            console.log(response.data);
-            
-            if(response.data.status === 'success'){
+
+          const newUser = {
+            name :this.state.name,
+            usn:this.state.usn,
+            branch:this.state.branch,
+            sem:this.state.sem,
+            email:this.state.email,
+            password:this.state.password,
+            phone:this.state.phone,
+            interest:this.state.interest,
+            volunteer:this.state.volunteer
+
+          }
+            console.log("Password before register"+newUser.password);
+            const response = await axios.post(`http://localhost:8080/mem/register`,newUser)
+            .then(res => this.props.history.push("/login"))            
+            if(response.status === 200){
                 console.log("No error");
                 alert("DONE!!");
             }else{

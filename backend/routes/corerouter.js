@@ -1,8 +1,10 @@
 import express from 'express';
-
 const router = express.Router();
-
 import coreschema from '../models/core.js';
+// import validation from '../validation/memberRegValidation.js';
+
+
+
 
 // router.get('/', async(req,res) => {
 //     try{
