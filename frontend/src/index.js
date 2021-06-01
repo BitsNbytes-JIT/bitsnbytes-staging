@@ -1,16 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios'
-// import '../src/assets/scss/index.scss';
-import Index from './views/Index';
 import './index.css';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
-axios.defaults.baseURL ="http://localhost:8000/";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Index/>
-  </React.StrictMode>,
+  // <React.StrictMode>
+    <App />,
+  // </React.StrictMode>,
   document.getElementById('root')
 );
 
