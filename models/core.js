@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require("mongoose");
 
 const coreSchema = mongoose.Schema({
     _id:String,
@@ -10,6 +10,5 @@ const coreSchema = mongoose.Schema({
     Password: { type: String, required:  true }
 });
 
-var core = mongoose.model('Core', coreSchema);
 
-export default core;
+module.exports = core = mongoose.model('Core', coreSchema);

@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require("mongoose");
 
 const userSchema = mongoose.Schema({
     _id:String,
@@ -12,6 +12,5 @@ const userSchema = mongoose.Schema({
     Intrests:String
 });
 
-var member = mongoose.model('Core', userSchema);
 
-export default member;
+module.exports = member = mongoose.model('Core', userSchema);
