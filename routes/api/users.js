@@ -85,7 +85,7 @@ router.post("/login", (req, res) => {
         // Sign token
         jwt.sign(
           payload,
-          process.env.secretOrKey,
+          process.env.SECRET,
           {
             expiresIn: 31556926 // 1 year in seconds
           },
