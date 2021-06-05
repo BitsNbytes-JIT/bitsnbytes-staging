@@ -1,19 +1,33 @@
-import express from 'express'
-import connectDB from './backend/database/connection.js';
-import dotenv from "dotenv"
-import  path from  'path';
-import corerouter from './backend/routes/corerouter.js';
-import memberrouter from './backend/routes/memberrouter.js';
-dotenv.config();
-const port = process.env.PORT || 8080;
-// create an express app
+const express = require("express");
+const passport = require("passport");
+require("dotenv").config()
+
+const connectDB = require('./database/connection');
+const users = require("./routes/api/users");
+
 const app = express();
 
-// connect to mongoDb
-connectDB();
- 
- app.use('/core',corerouter);
+// express middleware
+app.use(
+  express.urlencoded({
+    extended: false
+  })
+);
+app.use(express.json());
 
- app.use('/member',memberrouter);  
 
-app.listen(port, ()=> { console.log(`Server is running on http://localhost:${port}`)});
+// Connect to MongoDB
+connectDB()
+
+// Passport middleware
+app.use(passport.initialize());
+
+// Passport config
+require("./config/passport")(passport);
+
+// Routes
+app.use("/api/users", users);
+
+const port = process.env.PORT || 5000;
+
+app.listen(port, () => console.log(`Server up and running on port ${port} !`));
