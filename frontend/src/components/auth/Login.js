@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
-
 class Login extends Component {
   constructor() {
     super();
@@ -40,13 +39,16 @@ class Login extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-
+    
     const userData = {
       email: this.state.email,
       password: this.state.password
     };
-
+    //alert(userData.email);
     this.props.loginUser(userData);
+  
+    
+    
   };
 
   render() {
@@ -76,11 +78,12 @@ class Login extends Component {
                   error={errors.email}
                   id="email"
                   type="email"
+                  Placeholder="Email"
                   className={classnames("", {
                     invalid: errors.email || errors.emailnotfound
                   })}
                 />
-                <label htmlFor="email">Email</label>
+                
                 <span className="red-text">
                   {errors.email}
                   {errors.emailnotfound}
@@ -93,11 +96,12 @@ class Login extends Component {
                   error={errors.password}
                   id="password"
                   type="password"
+                  Placeholder="Password"
                   className={classnames("", {
                     invalid: errors.password || errors.passwordincorrect
                   })}
                 />
-                <label htmlFor="password">Password</label>
+               
                 <span className="red-text">
                   {errors.password}
                   {errors.passwordincorrect}

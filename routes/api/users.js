@@ -7,9 +7,9 @@ const passport = require("passport");
 // Load input validation
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
-
+//const validatedomain = require("../../validation/mail");
 // Load User model
-const User = require("../../models/User");
+const core = require("../../models/core");
 
 // @route POST api/users/register
 // @desc Register user
@@ -18,7 +18,7 @@ router.post("/register", (req, res) => {
   // Form validation
 
   const { errors, isValid } = validateRegisterInput(req.body);
-
+  
   // Check validation
   if (!isValid) {
     return res.status(400).json(errors);
@@ -28,7 +28,7 @@ router.post("/register", (req, res) => {
     if (user) {
       return res.status(400).json({ email: "Email already exists" });
     } else {
-      const newUser = new User({
+      const newUser = new core({
         name: req.body.name,
         email: req.body.email,
         password: req.body.password
@@ -56,11 +56,15 @@ router.post("/login", (req, res) => {
   // Form validation
 
   const { errors, isValid } = validateLoginInput(req.body);
-
+ // const { errs } = validatedomain(req.body);
   // Check validation
+  /*if(errs.email=="notvalid"){
+    return res.status(400).json("enter jyothy id only");
+  }*/
   if (!isValid) {
     return res.status(400).json(errors);
   }
+
 
   const email = req.body.email;
   const password = req.body.password;
@@ -85,7 +89,7 @@ router.post("/login", (req, res) => {
         // Sign token
         jwt.sign(
           payload,
-          process.env.SECRET,
+          process.env.secretOrKey,
           {
             expiresIn: 31556926 // 1 year in seconds
           },
