@@ -1,21 +1,19 @@
 import React ,{ Component } from 'react';
-import { Button, Form, FormGroup, Label, Input, Container, Col } from 'reactstrap';
-import axios from 'axios';
-
+const  { Button, Form, FormGroup, Label, Input, Container, Col } = require('reactstrap');
+const axios = require('axios');
 
 class register extends Component {
     constructor(){
         super();
         this.state = {
-            name :'',
-            usn :'',
-            branch:'',
-            sem:'',
-            email:'',
-            password: '',
-            phone:'',
-            volunteer:'No',
-            interest:''
+            Name :'',
+            USN :'',
+            Branch:'',
+            Sem:'',
+            Email:'',
+            Password:'',
+            Phone:'',
+            Role: '',
         }
         this.namechange = this.namechange.bind(this);
         this.usnchange = this.usnchange.bind(this);
@@ -24,74 +22,65 @@ class register extends Component {
         this.emailchange = this.emailchange.bind(this);
         this.passwordchange = this.passwordchange.bind(this);
         this.phonechange = this.phonechange.bind(this);
-        this.volunteerchange = this.volunteerchange.bind(this);
-        this.interestchange = this.interestchange.bind(this);
+        this.rolechange = this.rolechange.bind(this);
 
         this.formurl = this.formurl.bind(this);
     }
 
-        
-
         namechange = (event) => {
-            this.setState({name: event.target.value});
+            this.setState({Name: event.target.value});
         }
         usnchange = (event) => {
-            this.setState({usn: event.target.value});
+            this.setState({USN: event.target.value});
         }
         branchchange = (event) => {
-            this.setState({branch: event.target.value});
+            this.setState({Branch: event.target.value});
         }
         semchange = (event) => {
-            this.setState({sem: event.target.value});
+          this.setState({Sem: event.target.value});
         }
+  
         emailchange = (event) => {
-            this.setState({email : event.target.value});
+            this.setState({Email : event.target.value});
         }
         passwordchange = (event) => {
-            this.setState({password: event.target.value});
+          this.setState({Password: event.target.value});
         }
         phonechange = (event) => {
-            this.setState({phone: event.target.value});
+            this.setState({Phone: event.target.value});
         }
-        volunteerchange = (event) => {
-            const { volunteer, value } = event.target;
-
-            this.setState({
-              [volunteer]: value  });
-        }
-        interestchange = (event) => {
-            this.setState({interest: event.target.value});
+        rolechange = (event) => {
+          this.setState({Role:event.target.value});
         }
 
-        formurl = async() => {
 
-          const newUser = {
-            name :this.state.name,
-            usn:this.state.usn,
-            branch:this.state.branch,
-            sem:this.state.sem,
-            email:this.state.email,
-            password:this.state.password,
-            phone:this.state.phone,
-            interest:this.state.interest,
-            volunteer:this.state.volunteer
+        formurl = async(e) => {
+          
+          e.preventDefault();
+          console.log("Clicked!!");
+          console.log(this.state.Name);
+          const userData = {
+            Name : this.state.Name,
+            USN : this.state.USN,
+            Branch : this.state.Branch,
+            Sem : this.state.Sem,            
+            Email: this.state.Email,
+            Password: this.state.Password,
+            Phone : this.state.Phone,
+            Role : this.state.Role
 
-          }
-            console.log("Password before register"+newUser.password);
-            const response = await axios.post(`http://localhost:8080/mem/register`,newUser)
-            .then(res => this.props.history.push("/login"))            
-            if(response.status === 200){
-                console.log("No error");
-                alert("DONE!!");
-            }else{
-                console.log(response.data);
-            }
+          };
+          const response = await axios.post('http://localhost:8080/mem/register',userData);
+          console.log(response.data);
+          console.log(response.status);
 
         }
 
     
     render() {
-        // const {classes} = this.props;
+       // const {classes} = this.props;
+
+      
       return (
         <Container className="App">
           <h2>Register</h2>
@@ -101,7 +90,6 @@ class register extends Component {
                 <Label for="Name">Name :</Label>
                 <Input
                 type="String"
-                name="name"
                 onChange={this.namechange}
                 id="name"
                 placeholder="Enter name"
@@ -110,10 +98,9 @@ class register extends Component {
             </Col>
             <Col>
               <FormGroup>
-                <Label for="usn">USN: </Label>
+                <Label for="USN">USN: </Label>
                 <Input
                   type="String"
-                  name="usn"
                   onChange={this.usnchange}
                   id="usn"
                   placeholder="Enter USN"
@@ -122,10 +109,9 @@ class register extends Component {
             </Col>
             <Col>
               <FormGroup>
-                <Label for="branch">Branch: </Label>
+                <Label for="Branch">Branch: </Label>
                 <Input
                   type="String"
-                  name="branch"
                   onChange={this.branchchange}
                   id="branch"
                   placeholder="Enter Branch"
@@ -134,13 +120,12 @@ class register extends Component {
             </Col>
             <Col>
               <FormGroup>
-                <Label for="sem">Semester: </Label>
+                <Label for="Sem">Semester: </Label>
                 <Input
-                  type="number"
-                  name="sem"
+                  type="Integer"
                   onChange={this.semchange}
                   id="sem"
-                  placeholder="Enter Sem"
+                  placeholder="Enter Semester"
                 />
               </FormGroup>
             </Col>
@@ -149,7 +134,6 @@ class register extends Component {
                 <Label>Email : </Label>
                 <Input
                   type="email"
-                  name="email"
                   onChange={this.emailchange}
                   id="exampleEmail"
                   placeholder="myemail@email.com"
@@ -158,10 +142,9 @@ class register extends Component {
             </Col>
             <Col>
               <FormGroup>
-                <Label for="examplePassword">Password</Label>
+                <Label for="password">Password: </Label>
                 <Input
                   type="password"
-                  name="password"
                   onChange={this.passwordchange}
                   id="password"
                   placeholder="Enter password"
@@ -173,7 +156,6 @@ class register extends Component {
                 <Label for="phone">Phone</Label>
                 <Input
                   type="Integer"
-                  name="phone"
                   onChange={this.phonechange}
                   id="phone"
                   placeholder= "Enter Phone"
@@ -181,44 +163,22 @@ class register extends Component {
               </FormGroup>
             </Col>
             <Col>
-              <FormGroup>
-                <Label for="Interest">Interests : </Label>
-                <Input
-                  type="String"
-                  name="Interest"
-                  onChange={this.interestchange}
-                  id="interest"
-                  placeholder="Enter your Interests"
-                />
-              </FormGroup>
-            </Col>
-            <Col>
             <FormGroup>
-              Do you wish to volunteer?
-              <Label check>
-              <Input 
-                type="radio" 
-                name="radio" 
-                value="yes"
-                onChange={this.volunteerchange}/>
-                {'yes'}
-              </Label>
-              <Label check>
-              <Input 
-              type="radio" 
-              name="radio" 
-              value="No"
-              onChange={this.volunteerchange} />{'No'}
-              </Label>
+              <Label>Role : </Label>
+              <Input
+                type="role"
+                onChange={this.rolechange}
+                id="role"
+                placeholder="Enter role"
+              />
             </FormGroup>
-            </Col>
-            
-            
-            <Button>Submit</Button>
+          </Col>    
+            <button type="submit" className="btn btn-primary btn-block btn-lg">Sign Up</button>
           </Form>
         </Container>
       );
     }
   }
-  
-  export default register;
+
+
+export default register;

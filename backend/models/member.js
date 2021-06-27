@@ -1,78 +1,42 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
-const memberSchema = mongoose.Schema({
-    // _id:String,
-    // Name:String,
-    // USN:String,
-    // Branch:String,
-    // Sem:String,
-    // Email:String,
-    // Phone:Integer,
-    // Volunteer:Boolean,
-    // Intrests:String,
-    // name,
-    // usn,
-    // branch,
-    // sem,
-    // email,
-    // password,
-    // phone,
-    // volunteer,
-    // interest
-
-    name:{
-        type : String,
-        required: true
-    },   
-    usn:{
+const memberSchema = new mongoose.Schema({
+    Name:{
         type:String,
         required:true
     },
-    branch: {
-        type: String,
-        required:true
-    },
-    sem :{
-        type: Number,
-        required:true
-    },
-
-    email:{
+    USN:{
         type:String,
-        required: true
+        required:true,
+        unique:true
     },
-    phone :{
-        type: Number,
-        required: true
+    Branch:{
+        type:String,
+        required:true
     },
-    volunteer :{
-        type: String,
-        default: 'No'
-
-    
+    Sem:{
+        type:Number,
+        required:true
     },
-    interest: {
-        type: String,
+    Email:{
+        type:String,
+        required:true,
+        unique:true
+    },
+    Password:{
+        type:String,
+        required:true,
+    },
+    Phone:{
+        type:Number,
+        required:true,
+    },
+    Role:{
+        type:String,
+    },
 
-
-    }
-    
-    
 });
 
 var member = mongoose.model('Member',memberSchema);
 
-
-
-// const get = (callback,limit) => {
-//     member.find(callback),limit(limit);
-//     return
-// }
-// export { get };
-
-export default member;
-// exports = {
-//     get: function (callback, limit) {
-//         member.find(callback).limit(limit);
-// }
-// }
+module.exports = member;
